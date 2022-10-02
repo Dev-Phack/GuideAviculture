@@ -12,7 +12,7 @@
                     <div class="row">
                         <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                             <h3 class="font-weight-bold">Bienvenue {{app.user.email}}!</h3>
-{#                            <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6>#}
+                            {#                            <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6>#}
                         </div>
                         <div class="col-12 col-xl-4">
                             <div class="justify-content-end d-flex">
@@ -109,70 +109,41 @@
                                     <thead>
                                     <tr>
                                         <th>Email</th>
-{#                                        <th>Price</th>#}
-{#                                        <th>Date</th>#}
+                                        {#                                        <th>Price</th>#}
+                                        {#                                        <th>Date</th>#}
                                         <th>Statut</th>
                                         <th>Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>Search Engine Marketing</td>
-{#                                        <td class="font-weight-bold">$362</td>#}
-{#                                        <td>21 Sep 2018</td>#}
-                                        <td class="font-weight-medium"><div class="badge badge-success">Completed</div></td>
-                                        <td>
-                                            <a href="" style="text-decoration: none;" class="text-success">
-                                                <i class="mdi mdi-tooltip-edit"></i>
-{#                                                <i class="mdi mdi-border-color"></i>#}
-                                            </a>
-                                            <a href="" style="text-decoration: none;" class="text-warning">
-                                                <i class="mdi mdi-account-off"></i>
-{#                                                <i class="mdi mdi-account-check"></i>#}
-                                            </a>
-                                            <a href="" style="text-decoration: none;" class="text-danger">
-                                                <i class="mdi mdi-delete-forever"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Display Advertising</td>
-{#                                        <td class="font-weight-bold">$551</td>#}
-{#                                        <td>28 Sep 2018</td>#}
-                                        <td class="font-weight-medium"><div class="badge badge-warning">Pending</div></td>
-                                        <td>
-                                            <a href="" style="text-decoration: none;" class="text-success">
-                                                <i class="mdi mdi-tooltip-edit"></i>
-{#                                                <i class="mdi mdi-border-color"></i>#}
-                                            </a>
-                                            <a href="" style="text-decoration: none;" class="text-warning">
-                                                <i class="mdi mdi-account-off"></i>
-{#                                                <i class="mdi mdi-account-check"></i>#}
-                                            </a>
-                                            <a href="" style="text-decoration: none;" class="text-danger">
-                                                <i class="mdi mdi-delete-forever"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>E-Mail Marketing</td>
-{#                                        <td class="font-weight-bold">$781</td>#}
-{#                                        <td>01 Nov 2018</td>#}
-                                        <td class="font-weight-medium"><div class="badge badge-danger">Cancelled</div></td>
-                                        <td>
-                                            <a href="" style="text-decoration: none;" class="text-success">
-                                                <i class="mdi mdi-tooltip-edit"></i>
-{#                                                <i class="mdi mdi-border-color"></i>#}
-                                            </a>
-                                            <a href="" style="text-decoration: none;" class="text-warning">
-                                                <i class="mdi mdi-account-off"></i>
-{#                                                <i class="mdi mdi-account-check"></i>#}
-                                            </a>
-                                            <a href="" style="text-decoration: none;" class="text-danger">
-                                                <i class="mdi mdi-delete-forever"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    {%for user in users%}
+                                        <tr>
+                                                <td>{{user.email}}</td>
+                                                {#                                        <td class="font-weight-bold">$362</td>#}
+                                                {#                                        <td>21 Sep 2018</td>#}
+                                                {%if user.verified%}
+                                                    <td class="font-weight-medium"><div class="badge badge-success">Vérifié</div></td>
+                                                {%else%}
+                                                    <td class="font-weight-medium"><div class="badge badge-danger">Non vérifié</div></td>
+                                                {%endif%}
+                                                <td>
+                                                    <div class="d-flex">
+                                                        <a href="" style="text-decoration: none;" class="text-success">
+                                                            <i class="mdi mdi-tooltip-edit"></i>
+                                                            {#                                                <i class="mdi mdi-border-color"></i>#}
+                                                        </a>
+                                                        <a href="" style="text-decoration: none;" class="text-warning">
+                                                            <i class="mdi mdi-account-off"></i>
+                                                            {#                                                <i class="mdi mdi-account-check"></i>#}
+                                                        </a>
+                                                            {{include('admin/_deleteUser.html.twig')}}
+        {#                                                <a href="" style="text-decoration: none;" class="text-danger">#}
+        {#                                                    <i class="mdi mdi-delete-forever"></i>#}
+        {#                                                </a>#}
+                                                    </div>
+                                                </td>
+                                        </tr>
+                                    {%endfor%}
                                     </tbody>
                                 </table>
                             </div>

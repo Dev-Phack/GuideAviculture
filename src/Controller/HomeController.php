@@ -17,10 +17,10 @@ class HomeController extends AbstractController
 //        }
 //        $this->addFlash('success', 'Bienvenue sur GuideAvi');
         if ($this->isGranted('ROLE_ADMIN')) {
-            return $this->render('home/superadmin.html.twig');
+            return $this->redirectToRoute('app_admin');
         }
         elseif($this->isGranted('ROLE_USER')) {
-            return $this->render('home/user.html.twig');
+            return $this->redirectToRoute('app_user_index');
         }
         return $this->redirectToRoute('app_login');
     }

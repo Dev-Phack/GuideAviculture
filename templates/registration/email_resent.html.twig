@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Connexion</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+        {{ encore_entry_link_tags('notyf') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+        {{ encore_entry_script_tags('notyf') }}
+    {% endblock %}
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{{asset('assets/vendors/feather/feather.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/vendors/ti-icons/css/themify-icons.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/vendors/css/vendor.bundle.base.css')}}">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="{{asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/vendors/ti-icons/css/themify-icons.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/js/select.dataTables.min.css')}}">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{{asset('assets/css/vertical-layout-light/style.css')}}">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}" />
+
+    <link rel="stylesheet" href="{{asset('assets/vendors/mdi/css/materialdesignicons.min.css')}}">
+
+</head>
+<body>
+<div class="container mt-5">
+    {%include '_notyf.html.twig'%}
+
+    <!--============== Faqs Start ==============-->
+    <div class="full-row">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="text-center">
+                        <h5 class="my-4 text-primary">Mail envoyé</h5>
+                        <p>Si votre addresse est enregistré, un mail vient de vous être envoyé </p>
+                        <p>Veuillez le vérifier en cliquant sur le lien d'activation <br> qui a été envoyé à votre email.</p>
+                        <p>Si vous ne recevez pas d'e-mail, veuillez vérifier votre dossier spam ou <a href="{{path('app_resend_email')}}">Renvoyer le mail</a></p>
+                        </p>
+                        <a href="{{path('app_home')}}" class="btn btn-primary mt-4">Retour à l'accueil</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
